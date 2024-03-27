@@ -1,0 +1,68 @@
+# As perguntas ficarão logo abaixo podendo ser editadas ou se preferir adicionar mais perguntas, só seguir o padrão.
+perguntas =  [
+    {
+    'Perguntas':'Quanto custa o item "Espada do rei Destruído" ?',
+    'Opções':['3300','3600','3000','3200'],
+    'Resposta':'3300',  
+    },
+    {
+    'Perguntas':'Qual o nome da habilidade do "E" do Jax?',
+    'Opções':['Apreender','Obliterar','Avanço umbral','Contra-ataque'],
+    'Resposta':'Contra-ataque',
+    },
+    {
+    'Perguntas':'De qual região é o Skarner?',
+    'Opções':['Noxus','Demacia','Ixtal','Zaun'],
+    'Resposta':'Ixtal',
+    },
+    {
+    'Perguntas':'Qual a Rota popular do Corki?',
+    'Opções':['Top','Mid','Jungle','Bot'],
+    'Resposta':'Mid'
+    },
+    {
+    'Perguntas':'Qual foi o último rework feito? (Setembro de 2018)',
+    'Opções':['Akali','Aatrox','Irelia','Evelynn','Nunu e Willump'],
+    'Resposta':'Nunu e Willump',
+    },
+    {
+    'Perguntas':'Na skin padrão de Jax, quantos olhos ele tem?',
+    'Opções': ['Cinco','Seis','Três','Dois','Quatro'],
+    'Resposta':'Seis'
+    }
+    ]
+qtd_acertos = 0
+for pergunta in perguntas:
+    print(f'Pergunta: {pergunta['Perguntas']}')
+    print()
+    opcoes = pergunta['Opções']
+    for i, opcao in enumerate(pergunta['Opções']):
+        print(f'{i}) {opcao}')
+    print()
+
+
+    escolha = input('Escolha uma opção: ')
+    
+    escolha_int = None
+
+    acertou = False
+
+    qtd_opcoes = len(opcoes)
+
+    if escolha.isdigit():
+        escolha_int = int(escolha)
+        if escolha is not None:
+            if escolha_int >= 0 and escolha_int < qtd_opcoes:
+                if opcoes[escolha_int] == pergunta['Resposta']:
+                    acertou = True
+
+    print()
+    if acertou:
+        qtd_acertos += 1
+        print('Acertou! ✅')
+    else:
+        print('Errou! ❌')
+        print()
+
+print(f'Você acertou um total de: {qtd_acertos} perguntas!\n'
+          f'O número total de perguntas eram:{len(perguntas)}')
